@@ -136,7 +136,7 @@ const Container = styled.div`
 `;
 
 const Header: React.FC = () => {
-    const {openModal, ModalPortal} = useModal();
+    const {openModal, ModalPortal, closeModal} = useModal();
     return (
         <Container>
             <Link href="/">
@@ -157,7 +157,7 @@ const Header: React.FC = () => {
                     로그인
                 </button>
                 <ModalPortal>
-                    <SignUpModal/>
+                    <SignUpModal closeModal={closeModal}/>
                 </ModalPortal>
             </div>
         </Container>
