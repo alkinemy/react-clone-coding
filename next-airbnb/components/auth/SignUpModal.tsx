@@ -80,7 +80,7 @@ interface IProps {
 
 const PASSWORD_MIN_LENGTH = 8;
 
-const SignUpModal: React.FC<IProps> = ({ closeModal }) => {
+const SignUpModal: React.FC<IProps> = ({closeModal}) => {
     const [email, setEmail] = useState("");
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -301,7 +301,8 @@ const SignUpModal: React.FC<IProps> = ({ closeModal }) => {
                 <span
                     className="sign-up-modal-set-login"
                     role="presentation"
-                    onClick={() => {}}
+                    onClick={() => {
+                    }}
                 >
                     로그인
                 </span>

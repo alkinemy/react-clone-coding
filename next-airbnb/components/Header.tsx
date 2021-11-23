@@ -3,9 +3,16 @@ import palette from "../styles/palette";
 import styled from "styled-components";
 import AirBnbLogoIcon from "../public/static/svg/logo/logo.svg"
 import AirBnbLogoTextIcon from "../public/static/svg/logo/logo_text.svg"
-import React from "react";
-import SignUpModal from "./auth/SignUpModal";
+import HamburgerIcon from "../public/static/svg/header/hamburger.svg"
+import React, { useState } from "react";
 import useModal from "../hooks/useModal";
+import { useSelector } from "../store";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth";
+import AuthModal from "./auth/AuthModal";
+import OutsideClickHandler from "react-outside-click-handler";
+import { logoutAPI } from "../lib/api/auth";
+import { userActions } from "../store/user";
 
 const Container = styled.div`
   position: sticky;
@@ -136,7 +143,20 @@ const Container = styled.div`
 `;
 
 const Header: React.FC = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user)
     const {openModal, ModalPortal, closeModal} = useModal();
+    const [isUserMenuOpened, setIsUserMenuOpened] = useState(false);
+
+    const logout = async () => {
+        try {
+            await logoutAPI();
+            dispatch(userActions.initUser());
+        } catch (e) {
+            console.log(e.message);
+        }
+    };
+
     return (
         <Container>
             <Link href="/">
@@ -145,21 +165,74 @@ const Header: React.FC = () => {
                     <AirBnbLogoTextIcon/>
                 </a>
             </Link>
-            <div className="header-auth-buttons">
-                <button
-                    type="button"
-                    className="header-sign-up-button"
-                    onClick={openModal}
+            {!user.isLogged && (
+                <div className="header-auth-buttons">
+                    <button
+                        type="button"
+                        className="header-sign-up-button"
+                        onClick={() => {
+                            dispatch(authActions.setAuthMode("signup"));
+                            openModal();
+                        }}
+                    >
+                        회원가입
+                    </button>
+                    <button
+                        type="button"
+                        className="header-login-button"
+                        onClick={() => {
+                            dispatch(authActions.setAuthMode("login"));
+                            openModal();
+                        }}
+                    >
+                        로그인
+                    </button>
+                    <ModalPortal>
+                        <AuthModal closeModal={closeModal}/>
+                    </ModalPortal>
+                </div>
+            )}
+            {user.isLogged && (
+                <OutsideClickHandler
+                    onOutsideClick={() => {
+                        if (isUserMenuOpened) {
+                            setIsUserMenuOpened(false);
+                        }
+                    }}
                 >
-                    회원가입
-                </button>
-                <button type="button" className="header-login-button">
-                    로그인
-                </button>
-                <ModalPortal>
-                    <SignUpModal closeModal={closeModal}/>
-                </ModalPortal>
-            </div>
+                    <button
+                        className="header-user-profile"
+                        type="button"
+                        onClick={() => setIsUserMenuOpened(!isUserMenuOpened)}
+                    >
+                        <HamburgerIcon/>
+                        <img
+                            src={user.profileImage}
+                            className="header-user-profile-image"
+                            alt=""
+                        />
+                    </button>
+                    {isUserMenuOpened && (
+                        <ul className="header-usermenu">
+                            <li>숙소 관리</li>
+                            <Link href="/room/register/building">
+                                <a
+                                    role="presentation"
+                                    onClick={() => {
+                                        setIsUserMenuOpened(false);
+                                    }}
+                                >
+                                    <li>숙소 등록하기</li>
+                                </a>
+                            </Link>
+                            <div className="header-usermenu-divider"/>
+                            <li role="presentation" onClick={logout}>
+                                로그아웃
+                            </li>
+                        </ul>
+                    )}
+                </OutsideClickHandler>
+            )}
         </Container>
     );
 };
