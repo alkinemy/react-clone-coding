@@ -60,4 +60,4 @@ const Selector: React.FC<SelectorType> = ({options = [], disabledOptions = [], i
     );
 };
 
-export default Selector;
+export default React.memo(Selector);

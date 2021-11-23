@@ -23,4 +23,4 @@ function Button({children, ...props}: ButtonType) {
     return <Container {...props}>{children}</Container>;
 }
 
-export default Button;
+export default React.memo(Button);
