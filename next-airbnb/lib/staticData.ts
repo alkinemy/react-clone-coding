@@ -1,3 +1,5 @@
+import { BedType } from "../types/room";
+
 export const monthsList = [
     "1월",
     "2월",
@@ -19,6 +21,16 @@ export const daysList = Array.from(Array(31), (_, i) => String(i + 1));
 //* 2020년부터 1900년까지
 export const yearsList = Array.from(Array(121), (_, i) => String(2020 - i));
 
+
+export const largeBuildingTypeList = [
+    "아파트",
+    "주택",
+    "별채",
+    "독특한 숙소",
+    "B&B",
+    "부티크호텔",
+];
+
 //* 아파트 건물유형
 export const apartmentBuildingTypeList = [
     "아파트",
@@ -30,7 +42,7 @@ export const apartmentBuildingTypeList = [
 ];
 
 //*주택 건물유형
-export const houstBuildingTypeList = [
+export const houseBuildingTypeList = [
     "주택",
     "방갈로",
     "통나무집",
@@ -118,7 +130,7 @@ export const boutiquesHotelBuildingTypeList = [
 export const bedroomCountList = Array.from(Array(16), (_, i) => `침실 ${i}개`);
 
 //* 침대 유형
-export const bedTypes = [
+export const bedTypes: BedType[] = [
     "다른 침대 추가",
     "소파",
     "에어 매트릭스",
