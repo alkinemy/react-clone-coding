@@ -21,6 +21,16 @@ type RegisterRoomState = {
         type: BedType;
         count: number;
     }[];
+    bathroomCount: number;
+    bathroomType: "private" | "public" | null;
+    country: string;
+    city: string;
+    district: string;
+    streetAddress: string;
+    detailAddress: string;
+    postcode: string;
+    latitude: number;
+    longitude: number;
 };
 
 const initialState: RegisterRoomState = {
@@ -32,7 +42,17 @@ const initialState: RegisterRoomState = {
     bedroomCount: 0,
     bedCount: 1,
     bedList: [],
-    publicBedList: []
+    publicBedList: [],
+    bathroomCount: 1,
+    bathroomType: null,
+    country: "",
+    city: "",
+    district: "",
+    streetAddress: "",
+    detailAddress: "",
+    postcode: "",
+    latitude: 0,
+    longitude: 0,
 };
 
 const registerRoom = createSlice({
@@ -119,6 +139,46 @@ const registerRoom = createSlice({
             } else {
                 state.publicBedList[index].count = count;
             }
+            return state;
+        },
+        setBathroomCount: (state, action: PayloadAction<number>) => {
+            state.bathroomCount = action.payload;
+            return state;
+        },
+        setBathroomType: (state, action: PayloadAction<"private" | "public">) => {
+            state.bathroomType = action.payload;
+            return state;
+        },
+        setCountry: (state, action: PayloadAction<string>) => {
+            state.country = action.payload;
+            return state;
+        },
+        setCity: (state, action: PayloadAction<string>) => {
+            state.city = action.payload;
+            return state;
+        },
+        setDistrict: (state, action: PayloadAction<string>) => {
+            state.district = action.payload;
+            return state;
+        },
+        setStreetAddress: (state, action: PayloadAction<string>) => {
+            state.streetAddress = action.payload;
+            return state;
+        },
+        setDetailAddress: (state, action: PayloadAction<string>) => {
+            state.detailAddress = action.payload;
+            return state;
+        },
+        setPostcode: (state, action: PayloadAction<string>) => {
+            state.postcode = action.payload;
+            return state;
+        },
+        setLatitude: (state, action: PayloadAction<number>) => {
+            state.latitude = action.payload;
+            return state;
+        },
+        setLongitude: (state, action: PayloadAction<number>) => {
+            state.longitude = action.payload;
             return state;
         },
     },

@@ -122,7 +122,7 @@ const LoginModal: React.FC<IProps> = ({closeModal}) => {
                 />
             </div>
             <div className="login-modal-submit-button-wrapper">
-                <Button type="submit">로그인</Button>
+                <Button color={"bittersweet"} type="submit">로그인</Button>
             </div>
             <p>
                 이미 에어비앤비 계정이 있나요?
