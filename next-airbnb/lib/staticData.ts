@@ -33,7 +33,6 @@ export const largeBuildingTypeList = [
 
 //* 아파트 건물유형
 export const apartmentBuildingTypeList = [
-    "아파트",
     "공동주택",
     "별채",
     "카사 파르티쿨라르(쿠바)",
@@ -43,7 +42,6 @@ export const apartmentBuildingTypeList = [
 
 //*주택 건물유형
 export const houseBuildingTypeList = [
-    "주택",
     "방갈로",
     "통나무집",
     "카사",
@@ -105,7 +103,6 @@ export const uniqueSpaceBuildingTypeList = [
 
 //* B&B 건물유형
 export const bnbBuildingTypeList = [
-    "B&B",
     "카사 파르티쿨라르(쿠바)",
     "농장 체험 숙박",
     "민수 (타이완)",
@@ -115,7 +112,6 @@ export const bnbBuildingTypeList = [
 
 //* 부티크 호텔 건물유형
 export const boutiquesHotelBuildingTypeList = [
-    "부티크 호텔",
     "아파트 호텔",
     "헤리티지 호텔(인도)",
     "호스텔",
@@ -392,7 +388,7 @@ export const countryList = [
 ];
 
 //* 편의 시설
-export const amentityList = [
+export const amenityList = [
     "무선 인터넷",
     "TV",
     "난방",
