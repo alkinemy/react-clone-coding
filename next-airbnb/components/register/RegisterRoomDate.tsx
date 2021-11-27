@@ -5,6 +5,7 @@ import DatePicker from "../common/DatePicker";
 import {useSelector} from "../../store";
 import {useDispatch} from "react-redux";
 import {registerRoomActions} from "../../store/registerRoom";
+import RegisterRoomFooter from "./RegisterRoomFooter";
 
 const Container = styled.div`
   padding: 62px 30px 100px;
@@ -102,6 +103,10 @@ const RegisterRoomDate: React.FC = () => {
                     </label>
                 </div>
             </div>
+            <RegisterRoomFooter
+                prevHref="/room/register/price"
+                nextHref={`/room/register/checklist`}
+            />
         </Container>
     );
 };

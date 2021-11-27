@@ -1,45 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { BedType } from "../types/room";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {BedType, RegisterRoomState} from "../types/room";
 
-
-type RegisterRoomState = {
-    largeBuildingType: string | null;
-    buildingType: string | null;
-    roomType: string | null;
-    isSetUpForGuest: boolean | null;
-    maximumGuestCount: number;
-    bedroomCount: number;
-    bedCount: number;
-    bedList: {
-        id: number;
-        beds: {
-            type: BedType;
-            count: number;
-        }[]
-    }[];
-    publicBedList: {
-        type: BedType;
-        count: number;
-    }[];
-    bathroomCount: number;
-    bathroomType: "private" | "public" | null;
-    country: string;
-    city: string;
-    district: string;
-    streetAddress: string;
-    detailAddress: string;
-    postcode: string;
-    latitude: number;
-    longitude: number;
-    amenities: string[];
-    conveniences: string[];
-    photos: string[];
-    description: string;
-    title: string;
-    price: number;
-    startDate: string | null;
-    endDate: string | null;
-};
 
 const initialState: RegisterRoomState = {
     largeBuildingType: null,
