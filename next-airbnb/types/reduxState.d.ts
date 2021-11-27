@@ -1,5 +1,17 @@
 import { UserType } from "./user";
 
+
+export type SearchRoomState = {
+    location: string;
+    latitude: number;
+    longitude: number;
+    checkInDate: string | null;
+    checkOutDate: string | null;
+    adultCount: number;
+    childrenCount: number;
+    infantsCount: number;
+}
+
 export type UserState = UserType & {
     isLogged: boolean;
 }
