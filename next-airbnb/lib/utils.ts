@@ -19,3 +19,11 @@ export const getNumber = (string: string) => {
     }
     return null;
 }
+
+export const makeMoneyString = (input: string) => {
+    const amountString = input.replace(/[^0-9]/g, "");
+    if (amountString) {
+        return parseInt(amountString, 10).toLocaleString();
+    }
+    return "";
+};

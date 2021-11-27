@@ -5,6 +5,7 @@ import {useSelector} from "../../store";
 import {useDispatch} from "react-redux";
 import {registerRoomActions} from "../../store/registerRoom";
 import Input from "../common/Input";
+import RegisterRoomFooter from "./RegisterRoomFooter";
 
 
 const Container = styled.div`
@@ -46,6 +47,10 @@ const RegisterRoomTitle: React.FC = () => {
                     onChange={onChangeTitle}
                 />
             </div>
+            <RegisterRoomFooter
+                prevHref="/room/register/description"
+                nextHref="/room/register/price"
+            />
         </Container>
     );
 }
