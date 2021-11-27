@@ -1,9 +1,9 @@
 import { NextPage } from "next";
-import RegisterBathroom from "../../../components/register/RegisterBathrooms";
+import RegisterRoomBathroom from "../../../components/register/RegisterRoomBathrooms";
 
 
 const bathroom: NextPage = () => {
-    return <RegisterBathroom/>;
+    return <RegisterRoomBathroom/>;
 }
 
 export default bathroom;

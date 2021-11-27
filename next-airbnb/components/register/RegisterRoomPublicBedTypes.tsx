@@ -76,7 +76,6 @@ const RegisterRoomPublicBedTypes: React.FC = () => {
                  </div>
                  <Button
                      onClick={() => setOpened(!opened)}
-                     styleType="register"
                      color="white"
                  >
                      {opened && "완료"}

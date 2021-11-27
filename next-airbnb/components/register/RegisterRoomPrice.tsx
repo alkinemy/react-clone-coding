@@ -12,11 +12,13 @@ import {makeMoneyString} from "../../lib/utils";
 const Container = styled.div`
   padding: 62px 30px 100px;
   width: 445px;
+
   h2 {
     font-size: 19px;
     font-weight: 800;
     margin-bottom: 56px;
   }
+
   h3 {
     font-weight: bold;
     color: ${palette.gray_76};

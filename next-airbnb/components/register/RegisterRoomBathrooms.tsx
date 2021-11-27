@@ -28,7 +28,7 @@ const Container = styled.div`
     }
 `;
 
-const RegisterBathroom: React.FC = () => {
+const RegisterRoomBathroom: React.FC = () => {
     const bathroomCount = useSelector((state) => state.registerRoom.bathroomCount);
     const bathroomType = useSelector((state) => state.registerRoom.bathroomType);
     const dispatch = useDispatch();
@@ -73,4 +73,4 @@ const RegisterBathroom: React.FC = () => {
     );
 };
 
-export default RegisterBathroom;
+export default RegisterRoomBathroom;
