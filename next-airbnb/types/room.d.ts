@@ -1,3 +1,5 @@
+import {UserType} from "./user";
+
 export type BedType =
     | "다른 침대 추가"
     | "소파"

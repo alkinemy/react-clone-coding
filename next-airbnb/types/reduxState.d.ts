@@ -1,4 +1,5 @@
-import { UserType } from "./user";
+import {UserType} from "./user";
+import {RoomType} from "./room";
 
 
 export type SearchRoomState = {
@@ -18,4 +19,8 @@ export type UserState = UserType & {
 
 export type CommonState = {
     validateMode: boolean;
+}
+
+export type RoomState = {
+    rooms: RoomType[];
 }

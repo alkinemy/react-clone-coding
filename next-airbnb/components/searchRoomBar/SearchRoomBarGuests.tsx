@@ -87,7 +87,19 @@ const SearchRoomBarGuests: React.FC = () => {
             <OutsideClickHandler onOutsideClick={() => setPopupOpened(false)}>
                 <div className="search-room-bar-guests-texts">
                     <p className="search-room-bar-guest-label">인원</p>
-                    <p className="search-room-bar-guest-test">성인 0명</p>
+                    <p className="search-room-bar-guest-test">
+                        성인 {adultCount}명
+                        {(childrenCount !== 0) && (
+                            <>
+                                <br/>어린이 {childrenCount}명
+                            </>
+                        )}
+                        {(infantsCount !== 0) && (
+                            <>
+                                <br/>유아 {infantsCount}명
+                            </>
+                        )}
+                    </p>
                 </div>
                 <div className="search-room-bar-button-wrapper">
                     <SearchRoomButton/>
