@@ -101,7 +101,7 @@ const RoomListPage: React.FC = () => {
             </div>
             <div className="room-list-wrapper">
                 <RoomList showMap={showMap}/>
-                {showMap && <RoomListMap showMap={showMap} setShowMap={setShowMap}/>}
+                {/*{showMap && <RoomListMap showMap={showMap} setShowMap={setShowMap}/>}*/}
             </div>
         </Container>
     );

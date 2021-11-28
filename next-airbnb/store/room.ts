@@ -5,6 +5,7 @@ import {RoomType} from "../types/room";
 
 const initialState: RoomState = {
     rooms: [],
+    detail: null,
 }
 
 const room = createSlice({
@@ -13,6 +14,10 @@ const room = createSlice({
     reducers: {
         setRooms: (state, action: PayloadAction<RoomType[]>) => {
             state.rooms = action.payload;
+            return state;
+        },
+        setDetailRoom: (state, action: PayloadAction<RoomType>) => {
+            state.detail = action.payload;
             return state;
         },
     },

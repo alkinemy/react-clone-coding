@@ -19,3 +19,5 @@ type GetRoomListAPIQueries = {
 export const registerRoomAPI = (body: RegisterRoomState & { hostId: number }) => axios.post("/api/rooms", body);
 
 export const getRoomListAPI = (queries: GetRoomListAPIQueries) => axios.get<RoomType[]>(makeQueryString("/api/rooms", queries))
+
+export const getRoomAPI = (roomId: number) => axios.get<RoomType>(`/api/rooms/${roomId}`);

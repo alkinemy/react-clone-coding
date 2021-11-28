@@ -23,4 +23,5 @@ export type CommonState = {
 
 export type RoomState = {
     rooms: RoomType[];
+    detail: RoomType | null;
 }
